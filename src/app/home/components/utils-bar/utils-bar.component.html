@@ -1,0 +1,19 @@
+
+<div class="utils-bar-main shadow-deep">
+  <div class="controls-container">
+    <mat-icon>{{ 'add_circle' }}</mat-icon>
+  </div>
+
+  <div class="search-box-container">
+    <input-search 
+      [control]="search.control"
+      [placeholder]="'Find by name...'"
+      [ngModel]="keyword"
+      (onchange)="keyword=$event"
+      #search="ngModel"
+      id="search"
+      name="search"
+      ngDefaultControl
+    />
+  </div>
+</div>

@@ -6,7 +6,8 @@
     "color": "#FFFF00",
     "createdAt": "08/01/2020",
     "lastUpdate": "14/11/2023",
-    "createdBy": "Williamson Murphy"
+    "createdBy": "Williamson Murphy",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 1,
@@ -14,7 +15,8 @@
     "color": "#FFE4E1",
     "createdAt": "08/02/2023",
     "lastUpdate": "02/01/2021",
-    "createdBy": "Holmes Nelson"
+    "createdBy": "Holmes Nelson",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 2,
@@ -22,7 +24,8 @@
     "color": "#FFA500",
     "createdAt": "04/06/2021",
     "lastUpdate": "30/11/2015",
-    "createdBy": "Larson Holman"
+    "createdBy": "Larson Holman",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 3,
@@ -30,7 +33,8 @@
     "color": "#FFA07A",
     "createdAt": "07/08/2023",
     "lastUpdate": "07/11/2019",
-    "createdBy": "Maxine Snow"
+    "createdBy": "Maxine Snow",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 4,
@@ -38,7 +42,8 @@
     "color": "#FF69B4",
     "createdAt": "18/09/2016",
     "lastUpdate": "24/09/2014",
-    "createdBy": "Stacy Buckner"
+    "createdBy": "Stacy Buckner",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 5,
@@ -46,7 +51,8 @@
     "color": "#FAFAD2",
     "createdAt": "22/10/2014",
     "lastUpdate": "08/05/2020",
-    "createdBy": "Lilly Barry"
+    "createdBy": "Lilly Barry",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 6,
@@ -54,7 +60,8 @@
     "color": "#A0522D",
     "createdAt": "13/01/2018",
     "lastUpdate": "10/04/2018",
-    "createdBy": "Gray Waller"
+    "createdBy": "Gray Waller",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 7,
@@ -62,7 +69,8 @@
     "color": "#A9A9A9",
     "createdAt": "04/05/2016",
     "lastUpdate": "17/03/2015",
-    "createdBy": "Elva Patton"
+    "createdBy": "Elva Patton",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 8,
@@ -70,7 +78,8 @@
     "color": "#9400D3",
     "createdAt": "14/12/2020",
     "lastUpdate": "30/11/2015",
-    "createdBy": "Sweeney Hancock"
+    "createdBy": "Sweeney Hancock",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 9,
@@ -78,7 +87,8 @@
     "color": "#2F4F4F",
     "createdAt": "04/10/2014",
     "lastUpdate": "08/10/2023",
-    "createdBy": "Dixon Schwartz"
+    "createdBy": "Dixon Schwartz",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 10,
@@ -86,7 +96,8 @@
     "color": "#000000",
     "createdAt": "01/01/2019",
     "lastUpdate": "27/09/2019",
-    "createdBy": "Kitty Fisher"
+    "createdBy": "Kitty Fisher",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 11,
@@ -94,7 +105,8 @@
     "color": "#87CEEB",
     "createdAt": "01/01/2019",
     "lastUpdate": "15/08/2022",
-    "createdBy": "Houston Kirk"
+    "createdBy": "Houston Kirk",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 12,
@@ -102,7 +114,8 @@
     "color": "#C71585",
     "createdAt": "19/08/2021",
     "lastUpdate": "20/05/2023",
-    "createdBy": "Christian Armstrong"
+    "createdBy": "Christian Armstrong",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 13,
@@ -110,7 +123,8 @@
     "color": "#FFD700",
     "createdAt": "20/09/2022",
     "lastUpdate": "30/05/2021",
-    "createdBy": "Benita Freeman"
+    "createdBy": "Benita Freeman",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 14,
@@ -118,7 +132,8 @@
     "color": "#FF0000",
     "createdAt": "19/02/2023",
     "lastUpdate": "25/11/2021",
-    "createdBy": "Oliver Cote"
+    "createdBy": "Oliver Cote",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 15,
@@ -126,7 +141,8 @@
     "color": "#660000",
     "createdAt": "01/01/2019",
     "lastUpdate": "27/09/2019",
-    "createdBy": "Kitty Fisher"
+    "createdBy": "Kitty Fisher",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 16,
@@ -134,7 +150,8 @@
     "color": "#45CEEB",
     "createdAt": "01/01/2019",
     "lastUpdate": "15/08/2022",
-    "createdBy": "Houston Kirk"
+    "createdBy": "Houston Kirk",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 17,
@@ -142,7 +159,8 @@
     "color": "#C71984",
     "createdAt": "19/08/2021",
     "lastUpdate": "20/05/2023",
-    "createdBy": "Christian Armstrong"
+    "createdBy": "Christian Armstrong",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 18,
@@ -150,7 +168,8 @@
     "color": "#66D300",
     "createdAt": "20/09/2022",
     "lastUpdate": "30/05/2021",
-    "createdBy": "Benita Freeman"
+    "createdBy": "Benita Freeman",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
   {
     "id": 19,
@@ -158,6 +177,7 @@
     "color": "#FFFFFF",
     "createdAt": "19/02/2023",
     "lastUpdate": "25/11/2021",
-    "createdBy": "Oliver Cote"
+    "createdBy": "Oliver Cote",
+    "description": "eque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   }
 ]

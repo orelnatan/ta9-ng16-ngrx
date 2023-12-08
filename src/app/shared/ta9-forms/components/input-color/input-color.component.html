@@ -1,0 +1,11 @@
+
+<div class="input-color-main">
+  <input 
+    type="color"
+    value="{{ value }}"
+    [disabled]="readonly"
+    (input)="onchange.emit($event.target.value)"
+  />
+
+  <div class="value-placeholder">{{ placeholder }}</div>
+</div>

@@ -1,0 +1,15 @@
+@import './src/assets/config/utils.scss';
+
+.utils-bar-main {
+  width: 100%;
+  padding: 15px;
+
+  .search-box-container {
+    padding-top: 3px;
+  }
+
+  mat-icon {
+    color: $color-base;
+    cursor: pointer;
+  }
+}

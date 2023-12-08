@@ -6,4 +6,5 @@ export interface INote {
   createdAt: string;
   lastUpdate: string;
   createdBy: string;
+  description: string;
 }

@@ -1,0 +1,15 @@
+
+<div class="input-search-main">
+  <mat-form-field>
+    <mat-icon matSuffix>{{ 'search' }}</mat-icon>
+
+    <input matInput 
+      type="text"
+      placeholder="{{placeholder}}"
+      [errorStateMatcher]="matcher"
+      [formControl]="control"
+      (input)="onsearch.emit($event.target.value)">
+      
+    <mat-error>{{ validation }}</mat-error>
+  </mat-form-field>
+</div>

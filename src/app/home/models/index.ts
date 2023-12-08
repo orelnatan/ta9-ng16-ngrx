@@ -1,2 +1,2 @@
 
-export { INote } from './note.model';
+export { INote } from './inote.model';

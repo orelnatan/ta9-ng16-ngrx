@@ -1,9 +1,14 @@
 
 <page-layout>
   <div class="notes-page-main">
+    <div class="utils-container">
+      <utils-bar></utils-bar>
+    </div>
 
     <div class="table-container">
-      <notes-table [notes]="(notes$ | async)!" />
+      <notes-table 
+        [notes]="(notes$ | async)!"
+      />
     </div>
   </div>
 </page-layout>

@@ -1,0 +1,13 @@
+
+<div class="input-text-main">
+  <mat-form-field>
+    <input matInput 
+      type="text"
+      placeholder="{{placeholder}}"
+      [errorStateMatcher]="matcher"
+      [formControl]="control"
+      (input)="onchange.emit($event.target.value)">
+      
+    <mat-error>{{ validation }}</mat-error>
+  </mat-form-field>
+</div>

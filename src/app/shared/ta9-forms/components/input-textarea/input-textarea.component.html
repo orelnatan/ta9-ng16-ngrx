@@ -1,0 +1,19 @@
+
+<div class="input-textarea-main">
+  <mat-form-field>
+    <textarea
+      matInput
+      type="text"
+      value="{{value}}"
+      rows="{{rows}}" 
+      cols="{{cols}}"
+      attr.maxlength="{{maxlength}}"
+      placeholder="{{placeholder}}"
+      [errorStateMatcher]="matcher"
+      [formControl]="control"
+      (input)="onchange.emit($event.target.value)">
+    </textarea>
+    
+    <mat-error>{{ validation }}</mat-error>
+  </mat-form-field>
+</div>
