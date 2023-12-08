@@ -7,16 +7,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HomeStoreModule } from '@ta9/home/store';
 
 @NgModule({
-    imports: [
-      CommonModule,
-      HomeStoreModule,
-      StoreModule.forRoot({}),
-      EffectsModule.forRoot([]),
-      StoreDevtoolsModule.instrument({
-          maxAge: 25, 
-      }),
-    ]
-  })
-  export class AppStoreModule {}
+  imports: [
+    CommonModule,
+    HomeStoreModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, 
+    }),
+  ]
+})
+export class AppStoreModule {}
 
 

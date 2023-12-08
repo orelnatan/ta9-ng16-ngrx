@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { LayoutModule } from '@ta9/shared/layout';
 
@@ -10,7 +10,7 @@ import { LayoutModule } from '@ta9/shared/layout';
   imports: [
     CommonModule,
     LayoutModule,
-    RouterOutlet,
+    RouterModule,
   ],
   template: `
     <root-layout>

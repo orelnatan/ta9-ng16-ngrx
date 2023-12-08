@@ -3,18 +3,12 @@
   <div class="layout-top">
     <div class="layout-header-container">
       <header>
-        <ng-content select="layout-header" select="[header-primary]"></ng-content>
+        <ng-content select="layout-header"></ng-content>
       </header>
     </div>
   </div>
 
   <div class="layout-body">
-    <div class="layout-sidebar-container">
-      <aside>
-        <ng-content select="layout-sidebar" select="[side-primary]"></ng-content>
-      </aside>
-    </div>
-
     <div class="inner-content-container">
       <section>
         <ng-content></ng-content>

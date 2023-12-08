@@ -1,4 +1,9 @@
 
 <page-layout>
-  dsadsa
+  <div class="notes-page-main">
+
+    <div class="table-container">
+      <notes-table [notes]="(notes$ | async)!" />
+    </div>
+  </div>
 </page-layout>

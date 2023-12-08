@@ -5,9 +5,4 @@ import { Component, Input } from '@angular/core';
   templateUrl: './page-layout.component.html',
   styleUrls: ['./page-layout.component.scss'],
 })
-export class PageLayoutComponent {  
-  @Input() fitWidthByContent: boolean;
-  @Input() fitHeightByContent: boolean;
-
-  @Input() withoutPadding: boolean;
-}
+export class PageLayoutComponent {}

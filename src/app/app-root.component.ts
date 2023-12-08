@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppNavbarComponent as AppNavbarModule } from './core/components';
 import { LayoutModule } from './shared/layout';
@@ -10,13 +10,13 @@ import { LayoutModule } from './shared/layout';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
+    RouterModule,
     LayoutModule,
     AppNavbarModule
   ],
   template: `
     <root-layout [forRoot]="true">
-      <layout-header header-primary>
+      <layout-header>
         <app-navbar />
       </layout-header>
 

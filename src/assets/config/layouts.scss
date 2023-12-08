@@ -35,7 +35,9 @@
 
 %page-content {
   display: flex;
-  width: $full-screen-width;
+  align-items: center;
   height: $full-screen-height;
+  max-width: 1345px;
+  margin: 0 auto;
 }
 

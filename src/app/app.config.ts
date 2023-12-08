@@ -1,4 +1,5 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 
@@ -10,7 +11,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     importProvidersFrom(
       AppStoreModule,
-      HttpClientModule
+      HttpClientModule,
+      BrowserAnimationsModule
     )
   ]
 };

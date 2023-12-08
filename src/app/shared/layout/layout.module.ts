@@ -6,7 +6,6 @@ import {
   RootLayoutComponent,
   PageLayoutComponent, 
   LayoutHeaderComponent,
-  LayoutSidebarComponent,
 } from './components';
 
 @NgModule({
@@ -14,7 +13,6 @@ import {
     RootLayoutComponent,
     PageLayoutComponent, 
     LayoutHeaderComponent,
-    LayoutSidebarComponent,
   ],
   imports: [ 
     CommonModule,
@@ -24,7 +22,6 @@ import {
     RootLayoutComponent,
     PageLayoutComponent, 
     LayoutHeaderComponent,
-    LayoutSidebarComponent,
   ]
 })
 export class LayoutModule {}

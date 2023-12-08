@@ -1,20 +1,11 @@
 @import './colors';
 @import './definitions.scss';
 
-.show-for-lg {
-  @media screen and (max-width: $breakpoint-sm) {
-    display: none !important;
-  }
-}
-
-.show-for-sm {
-  @media screen and (min-width: $breakpoint-sm) {
-    display: none !important;
-  }
-}
-
-.shadow-border-shallow {
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .4);
+.shadow-line {
+  position: absolute;
+  width: 100%;
+  border-style: none;
+  box-shadow: 0px 4px 7px -3px inset;
 }
 
 .snak-error-state {
@@ -45,4 +36,5 @@ a {
 ul {
   list-style-position: inside;
 }
+
 
