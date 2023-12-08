@@ -1,11 +1,21 @@
 
-<div class="input-color-main">
-  <input 
+<div class="input-color-main" (click)="color.click()">
+  <mat-form-field>
+    <input matInput 
+      type="text"
+      value="{{value}}"
+      placeholder="{{placeholder}}"
+      [errorStateMatcher]="matcher"
+      [formControl]="control"
+      (keydown)="$event.preventDefault()">
+      
+    <mat-error>{{ validation }}</mat-error>
+  </mat-form-field>
+
+  <input #color
+    class="input-color"
     type="color"
-    value="{{ value }}"
-    [disabled]="readonly"
+    value="{{value}}"
     (input)="onchange.emit($event.target.value)"
   />
-
-  <div class="value-placeholder">{{ placeholder }}</div>
 </div>

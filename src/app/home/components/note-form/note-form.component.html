@@ -1,0 +1,100 @@
+
+<div class="note-form-main">
+  <h1>Create or edit note</h1>
+
+  <form #form="ngForm" (ngSubmit)="form.valid && onsubmit.emit(note)" novalidate>
+    <inputs-container [gap]="35">
+      <input-field>
+        <input-text
+          [control]="notename.control"
+          [placeholder]="'Type note name'"
+          [validation]="'Required field, (length 20 - 50, chars only)'"
+          [required]="true"
+          [ngModel]="note.name"
+          (onchange)="note.name=$event"
+          #notename="ngModel"
+          id="notename"
+          name="notename"
+          pattern="[a-zA-Z ]*"
+          minlength="20"
+          maxlength="50"
+          ngDefaultControl>
+        </input-text>
+      </input-field>
+
+      <input-field [style.width.px]="145">
+        <input-color
+          [control]="color.control"
+          [value]="note.color"
+          [placeholder]="'Color'"
+          [validation]="'Required field'"
+          [required]="true"
+          [ngModel]="note.color"
+          (onchange)="note.color=$event"
+          #color="ngModel"
+          id="color"
+          name="color"
+          ngDefaultControl>
+        </input-color>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container [gap]="25">
+      <input-field>
+        <input-text
+          [control]="createdby.control"
+          [placeholder]="'Created by'"
+          [validation]="'Required field, (length 2-30, chars only)'"
+          [required]="true"
+          [ngModel]="note.createdBy"
+          (onchange)="note.createdBy=$event"
+          #createdby="ngModel"
+          id="createdby"
+          name="createdby"
+          pattern="[a-zA-Z ]*"
+          minlength="2"
+          maxlength="30"
+          ngDefaultControl>
+        </input-text>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container [gap]="35">
+      <input-field>
+        <input-textarea
+          [control]="description.control"
+          [placeholder]="'Type note description...'"
+          [validation]="'Required field, (length 20 - 50)'"
+          [required]="true"
+          [maxlength]="50"
+          [rows]="5"
+          [ngModel]="note.description"
+          (onchange)="note.description=$event"
+          #description="ngModel"
+          id="description"
+          name="description"
+          minlength="20"
+          ngDefaultControl>
+        </input-textarea>
+      </input-field>
+    </inputs-container>
+
+    <inputs-container [gap]="25">
+      <input-field>
+        <primary-button
+          [dosubmit]="false"
+          [palette]="'warn'"
+          [placeholder]="'CANCEL'" />
+      </input-field>
+
+      <input-field />
+
+      <input-field>
+        <primary-button
+          [dosubmit]="true"
+          [palette]="'primary'"
+          [placeholder]="'SAVE'" />
+      </input-field>
+    </inputs-container>
+  </form>
+</div>

@@ -1,10 +1,9 @@
 
 .input-color-main {
-  display: inline-flex;
+  position: relative;
 
-  .value-placeholder {
-    padding: 0px 5px;
-    font-size: 13px;
-    line-height: 29px;
+  input[type="color"] {
+    position: absolute;
+    visibility: hidden;
   }
 }

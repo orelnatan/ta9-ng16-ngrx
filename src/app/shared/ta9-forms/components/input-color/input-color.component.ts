@@ -14,7 +14,6 @@ export class InputColorComponent {
   @Input() control: FormControl;
   @Input() validation: string;
   @Input() placeholder: string;
-  @Input() readonly: boolean;
  
   matcher: ErrorStateMatcher = new BaseErrorStateMatcher();
   

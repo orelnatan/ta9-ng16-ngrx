@@ -7,9 +7,12 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { 
   InputColorComponent,
+  InputFieldComponent,
   InputSearchComponent,
   InputTextComponent,
+  InputsContainerComponent,
   InputTextareaComponent,
+  PrimaryButtonComponent
 } from './components';
 
 @NgModule({
@@ -17,7 +20,10 @@ import {
     InputTextComponent,
     InputSearchComponent,
     InputTextareaComponent,
-    InputColorComponent
+    InputColorComponent,
+    InputsContainerComponent,
+    InputFieldComponent,
+    PrimaryButtonComponent
   ],
   imports: [ 
     CommonModule,
@@ -31,7 +37,10 @@ import {
     InputTextComponent,
     InputSearchComponent,
     InputTextareaComponent,
-    InputColorComponent
+    InputColorComponent,
+    InputsContainerComponent,
+    InputFieldComponent,
+    PrimaryButtonComponent
   ]
 })
 export class Ta9FormsModule {}

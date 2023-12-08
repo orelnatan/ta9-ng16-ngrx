@@ -1,0 +1,9 @@
+
+<div class="primary-button-main">
+  <button mat-raised-button
+    type="{{dosubmit ? 'submit' : 'button'}}"
+    color="{{palette}}"
+    (click)="onclick.emit($event)"> 
+      {{ placeholder }}
+    </button>
+</div>

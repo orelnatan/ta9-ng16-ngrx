@@ -1,0 +1,14 @@
+
+<div class="slider-main">
+  <mat-drawer-container [hasBackdrop]="'true'">
+    <mat-drawer #drawer [mode]="'over'">
+      <div class="slider-content-container">
+        <aside>
+          <ng-content select="[inner-content]" />
+        </aside>
+      </div>
+    </mat-drawer>
+  
+    <ng-content select="[external-content]" />
+  </mat-drawer-container>
+</div>
