@@ -1,21 +1,20 @@
 
 <div class="note-form-main">
-  <h1>Create or edit note</h1>
+  <h1>{{ note.id ? "Update existing note" : "Create new note" }}</h1>
 
-  <form #form="ngForm" (ngSubmit)="form.valid && onsubmit.emit(note)" novalidate>
+  <form #form="ngForm" (ngSubmit)="form.valid && handleSubmit(note)" novalidate>
     <inputs-container [gap]="35">
       <input-field>
         <input-text
           [control]="notename.control"
           [placeholder]="'Type note name'"
-          [validation]="'Required field, (length 20 - 50, chars only)'"
+          [validation]="'Required field, (length 20 - 50)'"
           [required]="true"
           [ngModel]="note.name"
           (onchange)="note.name=$event"
           #notename="ngModel"
           id="notename"
           name="notename"
-          pattern="[a-zA-Z ]*"
           minlength="20"
           maxlength="50"
           ngDefaultControl>
@@ -59,14 +58,42 @@
       </input-field>
     </inputs-container>
 
+    <inputs-container [gap]="25" *ngIf="note.id">
+      <input-field>
+        <input-text
+          [control]="createdat.control"
+          [placeholder]="'Created at'"
+          [readonly]="true"
+          [ngModel]="note.createdAt"
+          #createdat="ngModel"
+          id="createdat"
+          name="createdat"
+          ngDefaultControl>
+        </input-text>
+      </input-field>
+
+      <input-field>
+        <input-text
+          [control]="lastupdate.control"
+          [placeholder]="'Last update'"
+          [readonly]="true"
+          [ngModel]="note.lastUpdate"
+          #lastupdate="ngModel"
+          id="lastupdate"
+          name="lastupdate"
+          ngDefaultControl>
+        </input-text>
+      </input-field>
+    </inputs-container>
+
     <inputs-container [gap]="35">
       <input-field>
         <input-textarea
           [control]="description.control"
           [placeholder]="'Type note description...'"
-          [validation]="'Required field, (length 20 - 50)'"
+          [validation]="'Required field, (length 20 - 100)'"
           [required]="true"
-          [maxlength]="50"
+          [maxlength]="100"
           [rows]="5"
           [ngModel]="note.description"
           (onchange)="note.description=$event"
@@ -82,9 +109,9 @@
     <inputs-container [gap]="25">
       <input-field>
         <primary-button
-          [dosubmit]="false"
           [palette]="'warn'"
-          [placeholder]="'CANCEL'" />
+          [placeholder]="'CANCEL'"
+          (onclick)="cancel.emit()" />
       </input-field>
 
       <input-field />

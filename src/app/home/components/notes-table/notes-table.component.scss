@@ -1,5 +1,11 @@
+@import './src/assets/config/utils.scss';
 
 .notes-table-main {
+  .table-row:hover {
+    background-color: $color-silver;
+    cursor: pointer;
+  }
+
   table {
     width: 100%;
   }

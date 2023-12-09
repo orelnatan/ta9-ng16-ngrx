@@ -1,11 +1,13 @@
 import { Actions, HomeActionTypes } from './home.actions';
 
 import { HomeState } from './home-state.model';
+import { add, update } from './utils';
 
 const initialState: HomeState = {
-  notes: [],
-  loading: false,
-  alert: null
+  notes: null,
+  note: null,
+  slider: false,
+  alert: null,
 }
 
 export function homeReducer(state = initialState, action: Actions): HomeState {
@@ -13,20 +15,46 @@ export function homeReducer(state = initialState, action: Actions): HomeState {
     case HomeActionTypes.FETCH: {
       return {
         ... state,
-        loading: true
       };
     };
     case HomeActionTypes.READY: {
       return {
         ... state,
         notes: action.payload.notes,
-        loading: false
+      };
+    };
+    case HomeActionTypes.EDIT: {
+      return {
+        ... state,
+        note: action.payload.note
+      };
+    };
+    case HomeActionTypes.UPDATE: {
+      return {
+        ... state,
+        notes: [...update([...state.notes!], {...action.payload.note})]
+      };
+    };
+    case HomeActionTypes.CREATE: {
+      return {
+        ... state,
+        notes: [...add([...state.notes!], {...action.payload.note})]
+      };
+    };
+    case HomeActionTypes.TOGGLE: {
+      return {
+        ... state,
+        slider: action.payload.slider
+      };
+    };
+    case HomeActionTypes.FILTER: {
+      return {
+        ... state,
       };
     };
     case HomeActionTypes.FAILURE: {
       return {
         ... state,
-        loading: false,
         alert: action.payload.error.message
       };
     };

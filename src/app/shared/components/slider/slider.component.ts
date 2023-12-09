@@ -1,6 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+import { HomeActions, HomeSelectors } from '@ta9/home/store';
+
+import { AppState } from 'src/app/store';
 
 @Component({
   selector: 'slider',
@@ -13,9 +19,25 @@ import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent {
-  @ViewChild(MatDrawer, { static: true }) drawer: MatDrawer;
+  open$: Observable<boolean>;
 
-  toggle(): void {
-    this.drawer.toggle();
+  constructor(
+    private readonly store$: Store<AppState>
+  ) {
+    this.open$ = this.store$.select(
+      HomeSelectors.getSlider
+    );
+  }
+
+  public slideIn(): void {
+    this.store$.dispatch(new HomeActions.Toggle({
+      slider: true
+    }));
+  }
+
+  public slideOut(): void {
+    this.store$.dispatch(new HomeActions.Toggle({
+      slider: false
+    }));
   }
 }

@@ -6,6 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { Ta9FormsModule } from '@ta9/shared/ta9-forms';
 import { INote } from '@ta9/home/models';
 
+import * as moment from 'moment';
+
 @Component({
   selector: 'note-form',
   standalone: true,
@@ -22,5 +24,24 @@ import { INote } from '@ta9/home/models';
 export class NoteFormComponent {
   @Input() note: INote = {} as INote;
 
-  @Output() onsubmit: EventEmitter<INote> = new EventEmitter();
+  @Output() update: EventEmitter<INote> = new EventEmitter();
+  @Output() create: EventEmitter<INote> = new EventEmitter();
+  @Output() cancel: EventEmitter<void> = new EventEmitter();
+
+  handleSubmit(note: INote): void {
+    note.id ? this.updateExistingNote(note) : this.createNewNote(note);
+  }
+
+  updateExistingNote(note: INote): void {
+    note.lastUpdate = moment().format('DD/MM/YYYY');
+
+    this.update.emit(note);
+  }
+
+  createNewNote(note: INote): void {
+    note.createdAt = moment().format('DD/MM/YYYY');
+    note.lastUpdate = moment().format('DD/MM/YYYY');
+
+    this.create.emit(note);
+  }
 }

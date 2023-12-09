@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { LayoutModule } from '@ta9/shared/layout';
-import { SliderComponent as SliderModule } from '@ta9/shared/components';
+import { SliderComponent, SliderComponent as SliderModule } from '@ta9/shared/components';
 
+import { AppState } from '../store';
+import { HomeActions, HomeSelectors } from './store';
 import { NoteFormComponent as NoteFormModule } from './components';
 import { INote } from './models';
 
@@ -20,25 +24,49 @@ import { INote } from './models';
   ],
   template: `
     <root-layout>
-      <layout-header>
-        <button (click)="slider.toggle()">open</button>
-      </layout-header>
-    
       <slider #slider>
-        <note-form inner-content 
-          [note]="note"
-          (onsubmit)="handleSubmit($event)"
-        />
-
-        <router-outlet external-content />
+        <ng-container inner-content>
+          <note-form *ngIf="slider.open$ | async"
+            [note]="(note$ | async)!"
+            (update)="dispatchUpdate($event)"
+            (create)="dispatchCreate($event)"
+            (cancel)="slider.slideOut()"
+          />
+        </ng-container>
+        
+        <ng-container external-content>
+          <router-outlet />
+        </ng-container>
       </slider>
     </root-layout>
   `,
 })
 export class HomeRootComponent {
-  note: INote = { } as INote;
+  @ViewChild(SliderComponent) slider: SliderComponent;
+  
+  note$: Observable<INote>;
 
-  handleSubmit(note: INote): void {
-    console.log(note)
+  constructor(
+    private readonly store$: Store<AppState>
+  ) {
+    this.note$ = this.store$.select(
+      HomeSelectors.getNote
+    );
+  }
+
+  dispatchUpdate(note: INote): void {
+    this.slider.slideOut();
+
+    this.store$.dispatch(new HomeActions.Update({
+      note: note
+    }));
+  }
+
+  dispatchCreate(note: INote): void {
+    this.slider.slideOut();
+
+    this.store$.dispatch(new HomeActions.Create({
+      note: note
+    }));
   }
 }

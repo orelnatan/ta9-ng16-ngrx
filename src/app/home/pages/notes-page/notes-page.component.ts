@@ -17,7 +17,7 @@ import { AppState } from 'src/app/store';
     CommonModule,
     LayoutModule,
     NotesTableModule,
-    UtilsbarModule
+    UtilsbarModule,
   ],
   templateUrl: './notes-page.component.html',
   styleUrls: ['./notes-page.component.scss']
@@ -25,17 +25,35 @@ import { AppState } from 'src/app/store';
 export class NotesPageComponent implements OnInit {
   notes$: Observable<INote[]>;
 
-  name: string = "#FFFF00";
-
   constructor(
     private readonly store$: Store<AppState>
   ) {
-    this.notes$ = this.store$.select(
-      HomeSelectors.getNotes
-    );
+    this.selectNotes();
   }
 
   ngOnInit(): void {
+    this.dispatchFetch();
+  }
+
+  selectNotes(keyword?: string): void {
+    this.notes$ = this.store$.select(
+      HomeSelectors.getNotes(keyword)
+    );
+  }
+
+  dispatchFetch(): void {
     this.store$.dispatch(new HomeActions.Fetch());
+  }
+
+  dispatchEdit(note?: INote): void {
+    this.store$.dispatch(new HomeActions.Edit({
+      note: note || {} as INote
+    }));
+  }
+
+  dispatchFilter(keyword: string): void {
+    this.store$.dispatch(new HomeActions.Filter({
+      keyword
+    }));
   }
 }

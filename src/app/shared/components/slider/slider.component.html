@@ -1,7 +1,11 @@
 
 <div class="slider-main">
   <mat-drawer-container [hasBackdrop]="'true'">
-    <mat-drawer #drawer [mode]="'over'">
+    <mat-drawer
+      [mode]="'over'"
+      [opened]="open$ | async"
+      (closed)="slideOut()"
+    >
       <div class="slider-content-container">
         <aside>
           <ng-content select="[inner-content]" />
@@ -12,3 +16,4 @@
     <ng-content select="[external-content]" />
   </mat-drawer-container>
 </div>
+

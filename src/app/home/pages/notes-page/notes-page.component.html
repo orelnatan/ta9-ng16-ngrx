@@ -2,13 +2,23 @@
 <page-layout>
   <div class="notes-page-main">
     <div class="utils-container">
-      <utils-bar></utils-bar>
+      <utils-bar #utils (plus)="dispatchEdit()" (search)="selectNotes($event)"></utils-bar>
     </div>
-
-    <div class="table-container">
-      <notes-table 
-        [notes]="(notes$ | async)!"
-      />
-    </div>
+    
+    <ng-container *ngIf="(notes$ | async)! as notes; else loader">
+      <div class="table-container">
+        <notes-table 
+          [notes]="notes"
+          [highlighted]="utils.searchbox.value"
+          (note)="dispatchEdit($event)"
+        />
+      </div>
+    </ng-container>
   </div>
 </page-layout>
+
+<ng-template #loader>
+  <div class="loader-container">
+    <span>Loading ...</span>
+  </div>
+</ng-template>

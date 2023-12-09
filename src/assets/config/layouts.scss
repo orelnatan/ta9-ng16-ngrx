@@ -8,8 +8,7 @@
 }
 
 %root-layout-body {
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
   width: $full-screen-width;
   height: $full-screen-height;
   overflow: hidden;

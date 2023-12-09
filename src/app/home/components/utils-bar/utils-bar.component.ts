@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { Ta9FormsModule } from '@ta9/shared/ta9-forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+
+import { Ta9FormsModule } from '@ta9/shared/ta9-forms';
+import { InputSearchComponent } from '@ta9/shared/ta9-forms/components';
 
 @Component({
   selector: 'utils-bar',
@@ -19,5 +20,10 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./utils-bar.component.scss']
 })
 export class UtilsbarComponent {
-  keyword: string;
+  @ViewChild(InputSearchComponent, { static: true }) searchbox: InputSearchComponent;
+  
+  @Output() plus: EventEmitter<void> = new EventEmitter();
+  @Output() rows: EventEmitter<void> = new EventEmitter();
+  @Output() grid: EventEmitter<void> = new EventEmitter();
+  @Output() search: EventEmitter<string> = new EventEmitter();
 }

@@ -6,6 +6,11 @@ import { INote } from '../models';
 export enum HomeActionTypes {
   FETCH = "[HOME] Fetch",
   READY = "[HOME] Ready",
+  EDIT = "[HOME] Edit",
+  UPDATE = "[HOME] Update",
+  CREATE = "[HOME] Create",
+  TOGGLE = "[HOME] Toggle",
+  FILTER = "[HOME] Filter",
   FAILURE = "[HOME] Failure"
 }
 
@@ -23,6 +28,46 @@ export class Ready implements Action {
 	}){}
 }
 
+export class Edit implements Action {
+  readonly type = HomeActionTypes.EDIT;
+
+  constructor(public payload: {
+		note: INote,
+	}){}
+}
+
+export class Update implements Action {
+  readonly type = HomeActionTypes.UPDATE;
+
+  constructor(public payload: {
+		note: INote,
+	}){}
+}
+
+export class Create implements Action {
+  readonly type = HomeActionTypes.CREATE;
+
+  constructor(public payload: {
+		note: INote,
+	}){}
+}
+
+export class Toggle implements Action {
+  readonly type = HomeActionTypes.TOGGLE;
+
+  constructor(public payload: {
+		slider: boolean,
+	}){}
+}
+
+export class Filter implements Action {
+  readonly type = HomeActionTypes.FILTER;
+
+  constructor(public payload: {
+		keyword: string,
+	}){}
+}
+
 export class Failure implements Action {
   readonly type = HomeActionTypes.FAILURE;
 
@@ -31,4 +76,4 @@ export class Failure implements Action {
 	}){}
 }
 
-export type Actions = Fetch | Ready | Failure;
+export type Actions = Fetch | Ready | Edit | Update | Create | Toggle | Filter | Failure;

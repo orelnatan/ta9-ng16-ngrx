@@ -1,33 +1,30 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Subject, debounceTime } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { MatInput } from '@angular/material/input';
 
-import { BaseErrorStateMatcher } from '../../classes';
+const DEBOUNCE_TIME: number = 600;
 
 @UntilDestroy()
 @Component({
   selector: 'input-search',
   templateUrl: './input-search.component.html',
 })
-export class InputSearchComponent {
-  @Input() value: string;
-  @Input() control: FormControl;
-  @Input() validation: string;
+export class InputSearchComponent { 
   @Input() placeholder: string;
- 
-  matcher: ErrorStateMatcher = new BaseErrorStateMatcher();
   
   @Output() onsearch: EventEmitter<string> = new EventEmitter();
 
   subject$: Subject<string> = new Subject();
+  value: string;
 
   constructor() {     
     this.subject$.pipe(
       untilDestroyed(this),
-      debounceTime(600)
+      debounceTime(DEBOUNCE_TIME)
     ).subscribe((value: string) => {
+      this.value = value;
+
       this.onsearch.emit(value);
     })
   }

@@ -1,7 +1,8 @@
 import { INote } from "../models";
 
 export interface HomeState {
-  notes: INote[],
-  loading: boolean,
-  alert?: string | null,
+  notes: INote[] | null,
+  note: INote | null,
+  slider: boolean,
+  alert: string | null,
 }

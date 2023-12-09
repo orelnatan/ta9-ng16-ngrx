@@ -6,6 +6,7 @@
       placeholder="{{placeholder}}"
       [errorStateMatcher]="matcher"
       [formControl]="control"
+      [readonly]="readonly"
       (input)="onchange.emit($event.target.value)">
       
     <mat-error>{{ validation }}</mat-error>
