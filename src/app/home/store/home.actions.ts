@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { INote } from '../models';
+import { INote, Mode } from '../models';
 
 export enum HomeActionTypes {
   FETCH = "[HOME] Fetch",
@@ -11,6 +11,7 @@ export enum HomeActionTypes {
   CREATE = "[HOME] Create",
   TOGGLE = "[HOME] Toggle",
   FILTER = "[HOME] Filter",
+  LAYOUT = "[HOME] Layout",
   FAILURE = "[HOME] Failure"
 }
 
@@ -68,6 +69,14 @@ export class Filter implements Action {
 	}){}
 }
 
+export class Layout implements Action {
+  readonly type = HomeActionTypes.LAYOUT;
+
+  constructor(public payload: {
+		mode: Mode,
+	}){}
+}
+
 export class Failure implements Action {
   readonly type = HomeActionTypes.FAILURE;
 
@@ -76,4 +85,4 @@ export class Failure implements Action {
 	}){}
 }
 
-export type Actions = Fetch | Ready | Edit | Update | Create | Toggle | Filter | Failure;
+export type Actions = Fetch | Ready | Edit | Update | Create | Toggle | Filter | Layout | Failure;

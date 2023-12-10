@@ -1,0 +1,18 @@
+
+<div class="checklist-single-main">
+  <div class="checklist-title">
+    {{ placeholder }}
+  </div>
+
+  <mat-radio-group [value]="value">
+    <div class="list-container">
+      <div class="radio-container" *ngFor="let item of items">
+        <input-radio
+          [value]="item.value"
+          [placeholder]="item.placeholder"
+          (onchange)="onchange.emit($event)">
+        </input-radio>
+      </div>
+    </div>
+  </mat-radio-group>
+</div>

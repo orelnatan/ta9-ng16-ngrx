@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 
 import { 
-  InputColorComponent,
-  InputFieldComponent,
-  InputSearchComponent,
   InputTextComponent,
-  InputsContainerComponent,
+  InputSearchComponent,
   InputTextareaComponent,
-  PrimaryButtonComponent
+  InputRadioComponent,
+  ChecklistSingleComponent,
+  InputColorComponent,
+  InputsContainerComponent,
+  InputFieldComponent,
+  PrimaryButtonComponent,
 } from './components';
 
 @NgModule({
@@ -20,10 +23,12 @@ import {
     InputTextComponent,
     InputSearchComponent,
     InputTextareaComponent,
+    InputRadioComponent,
+    ChecklistSingleComponent,
     InputColorComponent,
     InputsContainerComponent,
     InputFieldComponent,
-    PrimaryButtonComponent
+    PrimaryButtonComponent,
   ],
   imports: [ 
     CommonModule,
@@ -32,15 +37,18 @@ import {
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
+    MatRadioModule
   ],
   exports: [
     InputTextComponent,
     InputSearchComponent,
     InputTextareaComponent,
+    InputRadioComponent,
+    ChecklistSingleComponent,
     InputColorComponent,
     InputsContainerComponent,
     InputFieldComponent,
-    PrimaryButtonComponent
+    PrimaryButtonComponent,
   ]
 })
 export class Ta9FormsModule {}

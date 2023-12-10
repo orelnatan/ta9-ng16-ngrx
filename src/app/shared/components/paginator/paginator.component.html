@@ -1,0 +1,10 @@
+
+<div class="paginator-main">
+  <pagination-controls (pageChange)="currentPageChange.emit($event)" />
+
+  <checklist-single
+    [placeholder]="'Page size'"
+    [value]="itemsPerPage"
+    [items]="sizes"
+    (onchange)="handleSizeChange($event)" />
+</div>

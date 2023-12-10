@@ -2,8 +2,8 @@
 <div class="utils-bar-main shallow-shadow">
   <div class="controls-container">
     <mat-icon (click)="plus.emit()">{{ 'add_circle' }}</mat-icon>
-    <mat-icon (click)="rows.emit()">{{ 'menu' }}</mat-icon>
-    <mat-icon (click)="grid.emit()">{{ 'grid_view' }}</mat-icon>
+    <mat-icon (click)="rows.emit()" [class.active-icon]="mode === modeTypes.Rows">{{ 'menu' }}</mat-icon>
+    <mat-icon (click)="grid.emit()" [class.active-icon]="mode === modeTypes.Grid">{{ 'grid_view' }}</mat-icon>
   </div>
 
   <div class="search-box-container">

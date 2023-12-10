@@ -1,0 +1,9 @@
+
+<div class="input-radio-main">
+  <mat-radio-button
+    [value]="value" 
+    (change)="onchange.emit($event.value)"
+  >
+    {{ placeholder }}  
+  </mat-radio-button>
+</div>
