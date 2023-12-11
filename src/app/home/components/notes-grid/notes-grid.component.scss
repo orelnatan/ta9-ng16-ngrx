@@ -1,4 +1,57 @@
+@import './src/assets/config/utils.scss';
 
 .notes-grid-main {
-  
+  width: 100%;
+
+  .grid-container {
+    display: grid;
+    grid-gap: 15px;
+    overflow: hidden;  
+    padding: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr))
+  }
+
+  .note-card:hover {
+    cursor: pointer;
+
+    .card-color {
+      padding: 25px 35px;
+    }
+
+    .card-name {
+      font-family: assistant-bold;
+      color: $color-base;
+    }
+  }
+
+  .note-card {
+    width: 100%;
+    height: 185px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .4);
+  }
+
+  .card-name {
+    height: 25%;
+    padding: 0px 15px;
+    line-height: 46.25px;
+    font-size: 14px;
+    text-align: center;
+    background: $color-silver;
+  }
+
+  .card-color {
+    height: 75%;
+    padding: 35px 45px;
+    transition: 300ms;
+  }
+
+  .card-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
 }
+
+
+
+

@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnChanges, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EllipsisModule } from 'ngx-ellipsis';
 
 import { INote } from '@ta9/home/models';
 import { HighlightPipe as HighlightPipeModule } from '@ta9/shared/pipes';
@@ -9,17 +10,15 @@ import { HighlightPipe as HighlightPipeModule } from '@ta9/shared/pipes';
   standalone: true,
   imports: [
     CommonModule,
-    HighlightPipeModule
+    HighlightPipeModule,
+    EllipsisModule
   ],
   templateUrl: './notes-grid.component.html',
   styleUrls: ['./notes-grid.component.scss']
 })
 export class NotesGridComponent {
-  @Input() notes: INote[] = [];
+  @Input() elements: INote[] = [];
   @Input() highlighted: string;
 
   @Output() note: EventEmitter<INote> = new EventEmitter();
-  
-  
-
 }

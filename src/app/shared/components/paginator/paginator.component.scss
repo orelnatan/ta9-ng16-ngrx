@@ -1,3 +1,4 @@
+@import './src/assets/config/utils.scss';
 
 .paginator-main {
   display: flex;
@@ -6,5 +7,9 @@
 
   checklist-single {
     margin-top: -5px;
+  }
+
+  ::ng-deep .ngx-pagination .current {
+    background-color: $color-base;
   }
 }

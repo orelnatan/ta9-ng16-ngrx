@@ -15,7 +15,7 @@
       <div class="notes-container">
         <ng-container *ngIf="(mode$ | async) === modeTypes.Rows">
           <notes-rows 
-            [notes]="notes | paginate: { itemsPerPage, currentPage }"
+            [elements]="notes | paginate: { itemsPerPage, currentPage }"
             [highlighted]="utils.searchbox.value"
             (note)="dispatchEdit($event)"
           />
@@ -23,7 +23,7 @@
 
         <ng-container *ngIf="(mode$ | async) === modeTypes.Grid">
           <notes-grid 
-            [notes]="notes | paginate: { itemsPerPage, currentPage }"
+            [elements]="notes | paginate: { itemsPerPage, currentPage }"
             [highlighted]="utils.searchbox.value"
             (note)="dispatchEdit($event)"
           />
@@ -43,6 +43,6 @@
 
 <ng-template #loader>
   <div class="loader-container">
-    <span>Loading ...</span>
+    <loader></loader>
   </div>
 </ng-template>

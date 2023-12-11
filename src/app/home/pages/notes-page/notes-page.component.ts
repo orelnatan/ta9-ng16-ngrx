@@ -15,7 +15,7 @@ import { LayoutModule } from '@ta9/shared/layout';
 
 import { AppState } from 'src/app/store';
 import { Ta9FormsModule } from '@ta9/shared/ta9-forms';
-import { PaginatorModule } from '@ta9/shared/components';
+import { LoaderModule, PaginatorModule } from '@ta9/shared/components';
 
 @Component({
   selector: 'notes-page',
@@ -28,7 +28,8 @@ import { PaginatorModule } from '@ta9/shared/components';
     NotesGridModule,
     UtilsbarModule,
     Ta9FormsModule,
-    PaginatorModule
+    PaginatorModule,
+    LoaderModule
   ],
   templateUrl: './notes-page.component.html',
   styleUrls: ['./notes-page.component.scss']

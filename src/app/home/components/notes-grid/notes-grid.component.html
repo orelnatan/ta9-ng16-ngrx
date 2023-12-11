@@ -1,8 +1,12 @@
 
 <div class="notes-grid-main">
-  <div *ngFor="let note of notes">
-    {{note.name}}
+  <div class="grid-container">
+    <div class="note-card" *ngFor="let element of elements" (click)="note.emit(element)">
+      <div class="card-color">
+        <div class="card-canvas" [style.background-color]="element.color"></div>
+      </div>
+  
+      <div class="card-name with-ellipsis" [innerHTML]="element.name | highlight : highlighted"></div>
+    </div>
   </div>
-
- 
 </div>
