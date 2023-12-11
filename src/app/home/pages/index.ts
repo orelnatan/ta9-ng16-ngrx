@@ -1,2 +1,2 @@
 
-export { NotesPageComponent } from './notes-page';
+export { NotesPageModule } from './notes-page';

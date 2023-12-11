@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { catchError, map, mergeMap, tap } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { catchError, map, mergeMap, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 import { NotesService } from '../services';
 import { INote } from '../models';
@@ -31,16 +31,14 @@ export class HomeEffects {
 
   readonly fetch$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType<HomeActions.Fetch>(
-        HomeActions.HomeActionTypes.FETCH
-      ),
-      mergeMap((): Observable<HomeActions.Ready | HomeActions.Failure> => {
+      ofType(HomeActions.fetch),
+      mergeMap(() => {
         return this.notesService.fetch().pipe(
-          map((notes: INote[]): HomeActions.Ready => {
-            return new HomeActions.Ready({ notes })
+          map((notes: INote[]) => {
+            return HomeActions.ready({ notes })
           }),
           catchError(error => of(
-            new HomeActions.Failure({ error }))),
+            HomeActions.failure({ error }))),
         )
       })  
     )
@@ -48,20 +46,16 @@ export class HomeEffects {
 
   readonly edit$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType<HomeActions.Edit>(
-        HomeActions.HomeActionTypes.EDIT
-      ),
-      mergeMap((): Observable<HomeActions.Toggle> => {
-        return of(new HomeActions.Toggle({ slider: true }));
+      ofType(HomeActions.edit),
+      mergeMap(() => {
+        return of(HomeActions.toggle({ slider: true }));
       })  
     )
   })
 
   readonly success$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType<HomeActions.Update | HomeActions.Create>(
-        HomeActions.HomeActionTypes.UPDATE, HomeActions.HomeActionTypes.CREATE
-      ),
+      ofType(HomeActions.update, HomeActions.create),
       tap((): void => { 
         this.matSnackbar.open("Successfully done!", undefined, SUCCESS_SNACK_CONFIG);
       })
@@ -70,11 +64,9 @@ export class HomeEffects {
 
   readonly failure$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType<HomeActions.Failure>(
-        HomeActions.HomeActionTypes.FAILURE
-      ),
-      tap((action: HomeActions.Failure): void => { 
-        this.matSnackbar.open(action.payload.error.message, undefined, ERROR_SNACK_CONFIG);
+      ofType(HomeActions.failure),
+      tap((action): void => { 
+        this.matSnackbar.open(action.error.message, undefined, ERROR_SNACK_CONFIG);
       })
     )
   }, { dispatch: false })

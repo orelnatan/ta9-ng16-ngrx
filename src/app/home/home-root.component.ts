@@ -57,16 +57,12 @@ export class HomeRootComponent {
   dispatchUpdate(note: INote): void {
     this.slider.slideOut();
 
-    this.store$.dispatch(new HomeActions.Update({
-      note: note
-    }));
+    this.store$.dispatch(HomeActions.update({ note }));
   }
 
   dispatchCreate(note: INote): void {
     this.slider.slideOut();
 
-    this.store$.dispatch(new HomeActions.Create({
-      note: note
-    }));
+    this.store$.dispatch(HomeActions.create({ note }));
   }
 }

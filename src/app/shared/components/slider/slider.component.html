@@ -1,10 +1,10 @@
 
 <div class="slider-main">
-  <mat-drawer-container [hasBackdrop]="'true'">
+  <mat-drawer-container [hasBackdrop]="'true'" (backdropClick)="slideOut()">
     <mat-drawer
       [mode]="'over'"
       [opened]="open$ | async"
-      (closed)="slideOut()"
+      [disableClose]="true"
     >
       <div class="slider-content-container">
         <aside>

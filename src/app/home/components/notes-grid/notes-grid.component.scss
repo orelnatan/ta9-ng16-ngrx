@@ -1,15 +1,9 @@
 @import './src/assets/config/utils.scss';
 
+$card-size: 185px;
+
 .notes-grid-main {
   width: 100%;
-
-  .grid-container {
-    display: grid;
-    grid-gap: 15px;
-    overflow: hidden;  
-    padding: 5px;
-    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr))
-  }
 
   .note-card:hover {
     cursor: pointer;
@@ -24,10 +18,13 @@
     }
   }
 
-  .note-card {
-    width: 100%;
-    height: 185px;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .4);
+  .grid-container {
+    display: grid;
+    grid-gap: 15px;
+    padding: 5px;
+    grid-template-columns: repeat(
+      auto-fill, minmax($card-size, 1fr));
+    overflow: hidden;
   }
 
   .card-name {
@@ -37,6 +34,12 @@
     font-size: 14px;
     text-align: center;
     background: $color-silver;
+  }
+
+  .note-card {
+    width: 100%;
+    height: $card-size;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .4);
   }
 
   .card-color {

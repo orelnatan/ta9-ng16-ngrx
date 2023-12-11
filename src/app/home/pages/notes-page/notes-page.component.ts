@@ -10,12 +10,12 @@ import {
   UrlGoBarModule,
   UtilsbarModule }
 from '@ta9/home/components';
-import { HomeActions, HomeSelectors } from '@ta9/home/store';
+import { HomeSelectors, HomeActions } from '@ta9/home/store';
 import { INote, Mode } from '@ta9/home/models';
 import { LayoutModule } from '@ta9/shared/layout';
+import { LoaderModule, PaginatorModule } from '@ta9/shared/components';
 
 import { AppState } from 'src/app/store';
-import { LoaderModule, PaginatorModule } from '@ta9/shared/components';
 
 @Component({
   selector: 'notes-page',
@@ -55,7 +55,7 @@ export class NotesPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store$.dispatch(new HomeActions.Fetch());
+    this.store$.dispatch(HomeActions.fetch());
   }
 
   filterByKeyword(keyword?: string): void {
@@ -67,20 +67,10 @@ export class NotesPageComponent implements OnInit {
   }
 
   dispatchEdit(note?: INote): void {
-    this.store$.dispatch(new HomeActions.Edit({
-      note: note || {} as INote
-    }));
-  }
-
-  dispatchFilter(keyword: string): void {
-    this.store$.dispatch(new HomeActions.Filter({
-      keyword
-    }));
+    this.store$.dispatch(HomeActions.edit({ note: note || {} as INote }))
   }
 
   dispatchMode(mode: Mode): void {
-    this.store$.dispatch(new HomeActions.Layout({
-      mode: mode
-    }));
+    this.store$.dispatch(HomeActions.layout({ mode }));
   }
 }

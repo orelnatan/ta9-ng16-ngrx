@@ -1,88 +1,54 @@
-import { Action } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
+import { createAction, props } from '@ngrx/store';
 
 import { INote, Mode } from '../models';
 
-export enum HomeActionTypes {
-  FETCH = "[HOME] Fetch",
-  READY = "[HOME] Ready",
-  EDIT = "[HOME] Edit",
-  UPDATE = "[HOME] Update",
-  CREATE = "[HOME] Create",
-  TOGGLE = "[HOME] Toggle",
-  FILTER = "[HOME] Filter",
-  LAYOUT = "[HOME] Layout",
-  FAILURE = "[HOME] Failure"
+enum HomeActionTypes {
+  Fetch = "[HOME] Fetch",
+  Ready = "[HOME] Ready",
+  Edit = "[HOME] Edit",
+  Update = "[HOME] Update",
+  Create = "[HOME] Create",
+  Toggle = "[HOME] Toggle",
+  Layout = "[HOME] Layout",
+  Failure = "[HOME] Failure"
 }
 
-export class Fetch implements Action {
-  readonly type = HomeActionTypes.FETCH;
+export const fetch = createAction(
+  HomeActionTypes.Fetch,
+);
 
-  constructor(){}
-}
+export const ready = createAction(
+  HomeActionTypes.Ready,
+  props<{ notes: INote[] }>()
+);
 
-export class Ready implements Action {
-  readonly type = HomeActionTypes.READY;
+export const edit = createAction(
+  HomeActionTypes.Edit,
+  props<{ note: INote }>()
+);
 
-  constructor(public payload: {
-		notes: INote[],
-	}){}
-}
+export const toggle = createAction(
+  HomeActionTypes.Toggle,
+  props<{ slider: boolean }>()
+);
 
-export class Edit implements Action {
-  readonly type = HomeActionTypes.EDIT;
+export const update = createAction(
+  HomeActionTypes.Update,
+  props<{ note: INote }>()
+);
 
-  constructor(public payload: {
-		note: INote,
-	}){}
-}
+export const create = createAction(
+  HomeActionTypes.Create,
+  props<{ note: INote }>()
+);
 
-export class Update implements Action {
-  readonly type = HomeActionTypes.UPDATE;
+export const failure = createAction(
+  HomeActionTypes.Failure,
+  props<{ error: HttpErrorResponse }>()
+);
 
-  constructor(public payload: {
-		note: INote,
-	}){}
-}
-
-export class Create implements Action {
-  readonly type = HomeActionTypes.CREATE;
-
-  constructor(public payload: {
-		note: INote,
-	}){}
-}
-
-export class Toggle implements Action {
-  readonly type = HomeActionTypes.TOGGLE;
-
-  constructor(public payload: {
-		slider: boolean,
-	}){}
-}
-
-export class Filter implements Action {
-  readonly type = HomeActionTypes.FILTER;
-
-  constructor(public payload: {
-		keyword: string,
-	}){}
-}
-
-export class Layout implements Action {
-  readonly type = HomeActionTypes.LAYOUT;
-
-  constructor(public payload: {
-		mode: Mode,
-	}){}
-}
-
-export class Failure implements Action {
-  readonly type = HomeActionTypes.FAILURE;
-
-  constructor(public payload: {
-		error: HttpErrorResponse,
-	}){}
-}
-
-export type Actions = Fetch | Ready | Edit | Update | Create | Toggle | Filter | Layout | Failure;
+export const layout = createAction(
+  HomeActionTypes.Layout,
+  props<{ mode: Mode }>()
+);

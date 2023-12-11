@@ -1,11 +1,11 @@
 
 <div class="paginator-main deep-shadow">
-  <pagination-controls (pageChange)="currentPageChange.emit($event)" />
-
   <checklist-single
     [placeholder]="'Page size'"
     [value]="itemsPerPage"
     [items]="sizes"
     (onchange)="handleSizeChange($event)"
   />
+
+  <pagination-controls (pageChange)="currentPageChange.emit($event)" />
 </div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { Ta9FormsModule } from '@ta9/shared/ta9-forms';
 
@@ -7,7 +6,6 @@ import { Ta9FormsModule } from '@ta9/shared/ta9-forms';
   selector: 'url-go-bar',
   standalone: true,
   imports: [
-    CommonModule,
     Ta9FormsModule
   ],
   templateUrl: './url-go-bar.component.html',

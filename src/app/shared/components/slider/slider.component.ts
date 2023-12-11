@@ -30,14 +30,10 @@ export class SliderComponent {
   }
 
   public slideIn(): void {
-    this.store$.dispatch(new HomeActions.Toggle({
-      slider: true
-    }));
+    this.store$.dispatch(HomeActions.toggle({ slider: true }));
   }
 
   public slideOut(): void {
-    this.store$.dispatch(new HomeActions.Toggle({
-      slider: false
-    }));
+    this.store$.dispatch(HomeActions.toggle({ slider: false }));
   }
 }

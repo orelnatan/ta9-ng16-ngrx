@@ -1,8 +1,10 @@
-import { Actions, HomeActionTypes } from './home.actions';
+import { createReducer, on } from '@ngrx/store';
 
-import { HomeState } from './home-state.model';
 import { add, update } from './utils';
+import { HomeState } from './home-state.model';
 import { Mode } from '../models';
+
+import * as HomeActions from './home.actions';
 
 const initialState: HomeState = {
   notes: null,
@@ -11,66 +13,36 @@ const initialState: HomeState = {
   mode: Mode.Rows,
 }
 
-export function homeReducer(state = initialState, action: Actions): HomeState {
-  switch(action.type) {
-    case HomeActionTypes.FETCH: {
-      return {
-        ... state,
-        notes: null
-      };
-    };
-    case HomeActionTypes.READY: {
-      return {
-        ... state,
-        notes: action.payload.notes,
-      };
-    };
-    case HomeActionTypes.EDIT: {
-      return {
-        ... state,
-        note: action.payload.note
-      };
-    };
-    case HomeActionTypes.UPDATE: {
-      return {
-        ... state,
-        notes: [...update([...state.notes!], {...action.payload.note})]
-      };
-    };
-    case HomeActionTypes.CREATE: {
-      return {
-        ... state,
-        notes: [...add([...state.notes!], {...action.payload.note})]
-      };
-    };
-    case HomeActionTypes.TOGGLE: {
-      return {
-        ... state,
-        slider: action.payload.slider
-      };
-    };
-    case HomeActionTypes.FILTER: {
-      return {
-        ... state,
-      };
-    };
-    case HomeActionTypes.LAYOUT: {
-      return {
-        ... state,
-        mode: action.payload.mode
-      };
-    };
-    case HomeActionTypes.FAILURE: {
-      return {
-        ... state,
-      };
-    };
-    default: {
-      return {
-        ... state
-      }
-    };
-  }
-}
-
-
+export const homeReducer = createReducer(
+  initialState,
+  on(HomeActions.fetch, (state: HomeState) => ({
+    ...state,
+  })),
+  on(HomeActions.ready, (state: HomeState, { notes }) => ({
+    ...state,
+    notes: notes,
+  })),
+  on(HomeActions.edit, (state: HomeState, { note }) => ({
+    ...state,
+    note
+  })),
+  on(HomeActions.toggle, (state: HomeState, { slider }) => ({
+    ...state,
+    slider
+  })),
+  on(HomeActions.update, (state: HomeState, { note }) => ({
+    ...state,
+    notes: [...update([...state.notes!], {...note})]
+  })),
+  on(HomeActions.create, (state: HomeState, { note }) => ({
+    ...state,
+    notes: [...add([...state.notes!], {...note})]
+  })),
+  on(HomeActions.layout, (state: HomeState, { mode }) => ({
+    ...state,
+    mode
+  })),
+  on(HomeActions.failure, (state: HomeState) => ({
+    ...state,
+  })),
+);
