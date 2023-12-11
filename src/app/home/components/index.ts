@@ -1,5 +1,6 @@
 
-export { NotesRowsComponent } from './notes-rows';
-export { NotesGridComponent } from './notes-grid';
-export { UtilsbarComponent } from './utils-bar';
-export { NoteFormComponent } from'./note-form';
+export { NotesRowsModule } from './notes-rows';
+export { NotesGridModule } from './notes-grid';
+export { UtilsbarModule } from './utils-bar';
+export { NoteFormModule } from'./note-form';
+export { UrlGoBarModule } from './url-go-bar';

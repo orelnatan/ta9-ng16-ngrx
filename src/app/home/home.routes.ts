@@ -4,7 +4,7 @@ export const homeRoutes: Routes = [
   { path: '', redirectTo: 'notes', pathMatch: 'full' },
   {
     path: 'notes',
-    loadComponent: () => import('./pages/notes-page').then(notes => notes.NotesPageComponent),
+    loadComponent: () => import('./pages/notes-page').then(notes => notes.NotesPageModule),
   }
 ]
   

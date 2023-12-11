@@ -5,11 +5,11 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { LayoutModule } from '@ta9/shared/layout';
-import { SliderComponent, SliderComponent as SliderModule } from '@ta9/shared/components';
+import { SliderModule } from '@ta9/shared/components';
 
 import { AppState } from '../store';
 import { HomeActions, HomeSelectors } from './store';
-import { NoteFormComponent as NoteFormModule } from './components';
+import { NoteFormModule } from './components';
 import { INote } from './models';
 
 @Component({
@@ -42,7 +42,7 @@ import { INote } from './models';
   `,
 })
 export class HomeRootComponent {
-  @ViewChild(SliderComponent) slider: SliderComponent;
+  @ViewChild(SliderModule) slider: SliderModule;
   
   note$: Observable<INote>;
 

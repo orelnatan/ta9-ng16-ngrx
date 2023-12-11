@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EllipsisModule } from 'ngx-ellipsis';
 
 import { INote } from '@ta9/home/models';
-import { HighlightPipe as HighlightPipeModule } from '@ta9/shared/pipes';
+import { HighlightPipeModule } from '@ta9/shared/pipes';
 
 @Component({
   selector: 'notes-grid',

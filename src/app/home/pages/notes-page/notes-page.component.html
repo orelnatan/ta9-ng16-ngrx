@@ -1,45 +1,52 @@
 
-<page-layout>
-  <div class="notes-page-main">
-    <div class="utils-container">
-      <utils-bar #utils 
-        [mode]="(mode$ | async)!" 
-        (plus)="dispatchEdit()"
-        (search)="filterByKeyword($event)"
-        (rows)="dispatchMode(modeTypes.Rows)"
-        (grid)="dispatchMode(modeTypes.Grid)"
-      />
-    </div>
-    
-    <ng-container *ngIf="(notes$ | async)! as notes; else loader">
-      <div class="notes-container">
-        <ng-container *ngIf="(mode$ | async) === modeTypes.Rows">
-          <notes-rows 
-            [elements]="notes | paginate: { itemsPerPage, currentPage }"
-            [highlighted]="utils.searchbox.value"
-            (note)="dispatchEdit($event)"
-          />
-        </ng-container>
-
-        <ng-container *ngIf="(mode$ | async) === modeTypes.Grid">
-          <notes-grid 
-            [elements]="notes | paginate: { itemsPerPage, currentPage }"
-            [highlighted]="utils.searchbox.value"
-            (note)="dispatchEdit($event)"
-          />
-        </ng-container>
+<root-layout>
+  <page-layout>
+    <div class="notes-page-main">
+      <div class="url-go-container">
+        <url-go-bar />
       </div>
-      
-      <div class="paginator-container">
-        <paginator
-          [itemsPerPage]="itemsPerPage"
-          (currentPageChange)="currentPage=$event"
-          (pageSizeChange)="itemsPerPage=$event"
+
+      <h4>Management Tool</h4>
+      <div class="utils-container">
+        <utils-bar #utils 
+          [mode]="(mode$ | async)!" 
+          (plus)="dispatchEdit()"
+          (search)="filterByKeyword($event)"
+          (rows)="dispatchMode(modeTypes.Rows)"
+          (grid)="dispatchMode(modeTypes.Grid)"
         />
       </div>
-    </ng-container>
-  </div>
-</page-layout>
+      
+      <ng-container *ngIf="(notes$ | async)! as notes; else loader">
+        <div class="notes-container">
+          <ng-container *ngIf="(mode$ | async) === modeTypes.Rows">
+            <notes-rows 
+              [elements]="notes | paginate: { itemsPerPage, currentPage }"
+              [highlighted]="utils.searchbox.value"
+              (note)="dispatchEdit($event)"
+            />
+          </ng-container>
+
+          <ng-container *ngIf="(mode$ | async) === modeTypes.Grid">
+            <notes-grid 
+              [elements]="notes | paginate: { itemsPerPage, currentPage }"
+              [highlighted]="utils.searchbox.value"
+              (note)="dispatchEdit($event)"
+            />
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </page-layout>
+
+  <layout-footer>
+    <paginator
+      [itemsPerPage]="itemsPerPage"
+      (currentPageChange)="currentPage=$event"
+      (pageSizeChange)="itemsPerPage=$event"
+    />
+  </layout-footer>
+</root-layout>
 
 <ng-template #loader>
   <div class="loader-container">

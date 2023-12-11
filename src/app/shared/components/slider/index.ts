@@ -1,2 +1,2 @@
 
-export { SliderComponent } from './slider.component';
+export { SliderComponent as SliderModule } from './slider.component';

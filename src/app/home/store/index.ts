@@ -1,5 +1,5 @@
 
-export { HomeState} from './home-state.model';
+export { HomeState } from './home-state.model';
 export { HomeStoreModule } from './home-store.module';
 
 export * as HomeActions from './home.actions';

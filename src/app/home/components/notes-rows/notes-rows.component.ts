@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Input, OnChanges, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 
 import { INote } from '@ta9/home/models';
-import { HighlightPipe as HighlightPipeModule } from '@ta9/shared/pipes';
+import { HighlightPipeModule } from '@ta9/shared/pipes';
 
 const DISPLAYED_COLUMNS: string[] = ['color', 'name', 'createdAt', 'lastUpdate', 'createdBy'];
 
@@ -14,7 +13,6 @@ const DISPLAYED_COLUMNS: string[] = ['color', 'name', 'createdAt', 'lastUpdate',
   standalone: true,
   imports: [
     CommonModule,
-    MatPaginatorModule,
     MatTableModule,
     MatSortModule,
     HighlightPipeModule

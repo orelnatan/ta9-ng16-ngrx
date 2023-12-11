@@ -1,2 +1,2 @@
 
-export { NoteFormComponent } from './note-form.component';
+export { NoteFormComponent as NoteFormModule } from './note-form.component';

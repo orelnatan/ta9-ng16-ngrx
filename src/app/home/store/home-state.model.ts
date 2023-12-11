@@ -5,5 +5,4 @@ export interface HomeState {
   note: INote | null,
   slider: boolean,
   mode: Mode,
-  alert: string | null,
 }

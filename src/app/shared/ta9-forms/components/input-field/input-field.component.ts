@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'input-field',
   templateUrl: './input-field.component.html',
   styleUrls: [`./input-field.component.scss`]
 })
-export class InputFieldComponent {}
+export class InputFieldComponent {
+  @Input() gap: number;
+}

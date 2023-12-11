@@ -11,7 +11,7 @@ import { BaseErrorStateMatcher } from '../../classes';
 })
 export class InputColorComponent {
   @Input() value: string;
-  @Input() control: FormControl;
+  @Input() control: FormControl = new FormControl();
   @Input() validation: string;
   @Input() placeholder: string;
  

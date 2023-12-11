@@ -5,16 +5,16 @@ import { Store } from '@ngrx/store';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { 
-  NotesGridComponent as NotesGridModule,
-  NotesRowsComponent as NotesRowsModule,
-  UtilsbarComponent as UtilsbarModule }
+  NotesGridModule,
+  NotesRowsModule,
+  UrlGoBarModule,
+  UtilsbarModule }
 from '@ta9/home/components';
 import { HomeActions, HomeSelectors } from '@ta9/home/store';
 import { INote, Mode } from '@ta9/home/models';
 import { LayoutModule } from '@ta9/shared/layout';
 
 import { AppState } from 'src/app/store';
-import { Ta9FormsModule } from '@ta9/shared/ta9-forms';
 import { LoaderModule, PaginatorModule } from '@ta9/shared/components';
 
 @Component({
@@ -27,9 +27,9 @@ import { LoaderModule, PaginatorModule } from '@ta9/shared/components';
     NotesRowsModule,
     NotesGridModule,
     UtilsbarModule,
-    Ta9FormsModule,
     PaginatorModule,
-    LoaderModule
+    LoaderModule,
+    UrlGoBarModule
   ],
   templateUrl: './notes-page.component.html',
   styleUrls: ['./notes-page.component.scss']

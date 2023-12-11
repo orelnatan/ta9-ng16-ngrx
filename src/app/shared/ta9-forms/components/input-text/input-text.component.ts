@@ -9,7 +9,7 @@ import { BaseErrorStateMatcher } from '../../classes';
   templateUrl: './input-text.component.html',
 })
 export class InputTextComponent {
-  @Input() control: FormControl;
+  @Input() control: FormControl = new FormControl();
   @Input() validation: string;
   @Input() placeholder: string;
   @Input() readonly: boolean;

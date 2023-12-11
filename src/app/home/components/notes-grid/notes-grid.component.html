@@ -3,7 +3,7 @@
   <div class="grid-container">
     <div class="note-card" *ngFor="let element of elements" (click)="note.emit(element)">
       <div class="card-color">
-        <div class="card-canvas" [style.background-color]="element.color"></div>
+        <canvas [style.background-color]="element.color"></canvas>
       </div>
   
       <div class="card-name with-ellipsis" [innerHTML]="element.name | highlight : highlighted"></div>

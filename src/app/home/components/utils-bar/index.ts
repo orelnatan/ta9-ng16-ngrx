@@ -1,2 +1,2 @@
 
-export { UtilsbarComponent } from './utils-bar.component';
+export { UtilsbarComponent as UtilsbarModule } from './utils-bar.component';

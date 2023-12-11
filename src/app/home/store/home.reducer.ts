@@ -9,7 +9,6 @@ const initialState: HomeState = {
   note: null,
   slider: false,
   mode: Mode.Rows,
-  alert: null,
 }
 
 export function homeReducer(state = initialState, action: Actions): HomeState {
@@ -64,7 +63,6 @@ export function homeReducer(state = initialState, action: Actions): HomeState {
     case HomeActionTypes.FAILURE: {
       return {
         ... state,
-        alert: action.payload.error.message
       };
     };
     default: {

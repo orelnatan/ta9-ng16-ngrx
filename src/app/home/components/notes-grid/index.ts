@@ -1,2 +1,2 @@
 
-export { NotesGridComponent } from './notes-grid.component';
+export { NotesGridComponent as NotesGridModule } from './notes-grid.component';

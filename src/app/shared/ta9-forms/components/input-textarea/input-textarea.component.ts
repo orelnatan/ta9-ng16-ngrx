@@ -10,7 +10,7 @@ import { BaseErrorStateMatcher } from '../../classes';
 })
 export class InputTextareaComponent {
   @Input() value: string;
-  @Input() control: FormControl;
+  @Input() control: FormControl = new FormControl();
   @Input() validation: string;
   @Input() placeholder: string;
   @Input() rows: number;

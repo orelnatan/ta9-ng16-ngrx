@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { AppNavbarComponent as AppNavbarModule } from './core/components';
+import { AppNavbarModule } from './core/components';
 import { LayoutModule } from './shared/layout';
 
 @Component({

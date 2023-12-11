@@ -1,2 +1,2 @@
 
-export { AppNavbarComponent } from './app-navbar.component';
+export { AppNavbarComponent as AppNavbarModule } from './app-navbar.component';
