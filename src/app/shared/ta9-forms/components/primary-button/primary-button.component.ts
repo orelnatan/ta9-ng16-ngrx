@@ -1,11 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'primary-button',
   templateUrl: './primary-button.component.html',
   styleUrls: ['./primary-button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PrimaryButtonComponent {
   @Input() dosubmit: boolean;

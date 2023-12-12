@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,7 +19,8 @@ import * as moment from 'moment';
     MatIconModule
   ],
   templateUrl: './note-form.component.html',
-  styleUrls: ['./note-form.component.scss']
+  styleUrls: ['./note-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NoteFormComponent {
   @Input() note: INote = {} as INote;
@@ -32,12 +33,14 @@ export class NoteFormComponent {
     note.id ? this.updateExistingNote(note) : this.createNewNote(note);
   }
 
+  // if a note contain an id, it means we are just updating an old one
   updateExistingNote(note: INote): void {
     note.lastUpdate = moment().format('DD/MM/YYYY');
 
     this.update.emit(note);
   }
-
+  
+  // if a note does not contain an id, it means we are trying to create a new one
   createNewNote(note: INote): void {
     note.createdAt = moment().format('DD/MM/YYYY');
     note.lastUpdate = moment().format('DD/MM/YYYY');

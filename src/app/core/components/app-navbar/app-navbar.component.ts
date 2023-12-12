@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
   ],
   templateUrl: './app-navbar.component.html',
-  styleUrls: ['./app-navbar.component.scss']
+  styleUrls: ['./app-navbar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppNavbarComponent {}

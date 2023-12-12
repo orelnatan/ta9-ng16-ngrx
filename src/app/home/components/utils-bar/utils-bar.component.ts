@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,7 +18,8 @@ import { Mode } from '@ta9/home/models';
     MatIconModule
   ],
   templateUrl: './utils-bar.component.html',
-  styleUrls: ['./utils-bar.component.scss']
+  styleUrls: ['./utils-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UtilsbarComponent {
   @ViewChild(InputSearchComponent, { static: true }) searchbox: InputSearchComponent;

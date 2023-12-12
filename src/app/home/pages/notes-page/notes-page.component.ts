@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -32,7 +32,8 @@ import { AppState } from 'src/app/store';
     UrlGoBarModule
   ],
   templateUrl: './notes-page.component.html',
-  styleUrls: ['./notes-page.component.scss']
+  styleUrls: ['./notes-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NotesPageComponent implements OnInit {
   notes$: Observable<INote[]>;
@@ -67,10 +68,14 @@ export class NotesPageComponent implements OnInit {
   }
 
   dispatchEdit(note?: INote): void {
-    this.store$.dispatch(HomeActions.edit({ note: note || {} as INote }))
+    this.store$.dispatch(HomeActions.edit({
+      note: note || {} as INote
+    }))
   }
 
   dispatchMode(mode: Mode): void {
-    this.store$.dispatch(HomeActions.layout({ mode }));
+    this.store$.dispatch(HomeActions.layout({
+      mode
+    }));
   }
 }

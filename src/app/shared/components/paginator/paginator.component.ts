@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { Ta9FormsModule } from '@ta9/shared/ta9-forms';
@@ -9,12 +8,12 @@ import { IRadioItem } from '@ta9/shared/ta9-forms/models';
   selector: 'paginator',
   standalone: true,
   imports: [
-    CommonModule,
     NgxPaginationModule,
     Ta9FormsModule
   ],
   templateUrl: './paginator.component.html',
-  styleUrls: ['./paginator.component.scss']
+  styleUrls: ['./paginator.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PaginatorComponent {
   @Input() itemsPerPage: number;
