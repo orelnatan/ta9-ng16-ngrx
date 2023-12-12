@@ -12,7 +12,7 @@ import * as HomeActions from './home.actions';
 const SUCCESS_SNACK_CONFIG: MatSnackBarConfig = {
   panelClass: ["snak-success-state"],
   horizontalPosition: "left",
-  duration: 7000
+  duration: 2000
 }
 
 const ERROR_SNACK_CONFIG: MatSnackBarConfig = {
@@ -43,7 +43,8 @@ export class HomeEffects {
       })  
     )
   })
-
+  
+  // if we move to edit mode, we will trigger the "toggle" event to open the slider
   readonly edit$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(HomeActions.edit),
@@ -53,6 +54,7 @@ export class HomeEffects {
     )
   })
 
+  // if a note has been created or updated successfully, we will show a snack massage
   readonly success$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(HomeActions.update, HomeActions.create),
@@ -62,6 +64,7 @@ export class HomeEffects {
     )
   }, { dispatch: false })
 
+  // if for some reason the api failed, we will show a snack massage
   readonly failure$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(HomeActions.failure),

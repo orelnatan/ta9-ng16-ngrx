@@ -15,7 +15,8 @@ export class NotesService {
   constructor(
     private readonly httpClient: HttpClient,
   ) {}
-
+  
+  // returns the list of notes, I'm using the "delay" operator to simulate server response time
   fetch(): Observable<INote[]> {
     return this.httpClient.get<INote[]>(NOTES_API).pipe(
       delay(3000));

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { Ta9FormsModule } from '@ta9/shared/ta9-forms';
 
@@ -9,6 +9,7 @@ import { Ta9FormsModule } from '@ta9/shared/ta9-forms';
     Ta9FormsModule
   ],
   templateUrl: './url-go-bar.component.html',
-  styleUrls: ['./url-go-bar.component.scss']
+  styleUrls: ['./url-go-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UrlGoBarComponent {}

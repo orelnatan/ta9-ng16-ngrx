@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -16,7 +16,8 @@ import { AppState } from 'src/app/store';
     MatSidenavModule
   ],
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss']
+  styleUrls: ['./slider.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SliderComponent {
   open$: Observable<boolean>;
@@ -30,10 +31,14 @@ export class SliderComponent {
   }
 
   public slideIn(): void {
-    this.store$.dispatch(HomeActions.toggle({ slider: true }));
+    this.store$.dispatch(HomeActions.toggle({
+      slider: true
+    }));
   }
 
   public slideOut(): void {
-    this.store$.dispatch(HomeActions.toggle({ slider: false }));
+    this.store$.dispatch(HomeActions.toggle({
+      slider: false
+    }));
   }
 }

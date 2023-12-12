@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSort, MatSortModule } from '@angular/material/sort';
@@ -18,7 +18,8 @@ const DISPLAYED_COLUMNS: string[] = ['color', 'name', 'createdAt', 'lastUpdate',
     HighlightPipeModule
   ],
   templateUrl: './notes-rows.component.html',
-  styleUrls: ['./notes-rows.component.scss']
+  styleUrls: ['./notes-rows.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NotesRowsComponent implements OnChanges {
   @ViewChild(MatSort, { static: true }) sort: MatSort;

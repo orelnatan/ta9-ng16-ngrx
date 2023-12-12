@@ -20,7 +20,7 @@ export const homeReducer = createReducer(
   })),
   on(HomeActions.ready, (state: HomeState, { notes }) => ({
     ...state,
-    notes: notes,
+    notes,
   })),
   on(HomeActions.edit, (state: HomeState, { note }) => ({
     ...state,

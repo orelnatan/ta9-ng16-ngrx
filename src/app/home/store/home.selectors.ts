@@ -6,7 +6,7 @@ import { filter } from './utils';
 
 export const getHomeState = createFeatureSelector<HomeState>('home');
 
-// Parameterized NgRx Selectors
+// parameterized Ngrx selector
 export const getNotes = (keyword?: string) => createSelector(
   getHomeState,
   (state: HomeState): INote[] => { 
